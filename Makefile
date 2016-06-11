@@ -1,6 +1,6 @@
 .PHONY: clean
 
-bin/main: obj/main.o obj/app.o
+bin/main: prepare obj/main.o obj/app.o
 	gcc -Wall -o bin/main obj/main.o obj/app.o -lm
 	
 obj/main.o: src/main.c
@@ -11,3 +11,7 @@ obj/app.o: src/app.c
 	
 clean:
 	rm -f bin/* obj/*
+
+prepare:
+	mkdir -p bin
+	mkdir -p obj
